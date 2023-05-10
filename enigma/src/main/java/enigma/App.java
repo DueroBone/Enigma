@@ -6,6 +6,6 @@ package enigma;
  */
 public class App {
     public static void main(String[] args) {
-        EnigmaContainer.runStuff();
+        EnigmaMachine.runStuff();
     }
 }

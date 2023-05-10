@@ -37,37 +37,43 @@ public class Rotors {
     }
   }
 
-  Rotor1 rotor1 = new Rotor1();
-  Rotor2 rotor2 = new Rotor2();
-  Rotor3 rotor3 = new Rotor3();
+  Rotor1 m_rotor1 = new Rotor1();
+  Rotor2 m_rotor2 = new Rotor2();
+  Rotor3 m_rotor3 = new Rotor3();
 
-  void RollRotors() {
-    if (rotor1.Position != 26) {
-      rotor1.setPosition(rotor1.Position + 1);
+  void RollRotors(Rotor1 InRotor1, Rotor2 InRotor2, Rotor3 InRotor3) {
+    if (InRotor1.Position < 25) {
+      InRotor1.setPosition(InRotor1.Position + 1);
     } else {
-      rotor1.setPosition(1);
-      if (rotor2.Position != 26) {
-        rotor2.setPosition(rotor2.Position + 1);
+      InRotor1.setPosition(0);
+      if (InRotor2.Position < 25) {
+        InRotor2.setPosition(InRotor2.Position + 1);
       } else {
-        rotor2.setPosition(1);
-        if (rotor3.Position != 26) {
-          rotor3.setPosition(rotor3.Position + 1);
+        InRotor2.setPosition(0);
+        if (InRotor3.Position < 25) {
+          InRotor3.setPosition(InRotor3.Position + 1);
         } else {
-          rotor3.setPosition(1);
+          InRotor3.setPosition(0);
         }
       }
     }
   }
 
   void SetRollers(int Pos1, int Pos2, int Pos3) {
-    rotor1.Position = Pos1;
-    rotor2.Position = Pos2;
-    rotor3.Position = Pos3;
+    m_rotor1.Position = Pos1;
+    m_rotor2.Position = Pos2;
+    m_rotor3.Position = Pos3;
   }
 
   int RunThrough(int input) {
-    int output = rotor1.Pattern[rotor2.Pattern[rotor3.Pattern[rotor3.Pattern[rotor2.Pattern[rotor1.Pattern[input]]]]]];
-    RollRotors();
+    int output = (m_rotor1.Pattern[(m_rotor2.Pattern[(m_rotor3.Pattern[(m_rotor3.Pattern[(m_rotor2.Pattern[(m_rotor1.Pattern[(input
+        + m_rotor1.Position) % 26] + m_rotor2.Position) % 26] + m_rotor3.Position) % 26] + m_rotor3.Position) % 26]
+        + m_rotor2.Position) % 26] + m_rotor1.Position) % 26]) % 26;
+    RollRotors(m_rotor1, m_rotor2, m_rotor3);
     return output;
+  }
+
+  String getPosition(Rotor1 InRotor1, Rotor2 InRotor2, Rotor3 InRotor3) {
+    return InRotor1.Position + " " + InRotor2.Position + " " + InRotor3.Position;
   }
 }
