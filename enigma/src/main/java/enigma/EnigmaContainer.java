@@ -20,7 +20,7 @@ public class EnigmaContainer {
 
     // check for custom salt
 
-    long StartTime = System.currentTimeMillis();
+    // long StartTime = System.currentTimeMillis();
 
     if (Mode == 1) {
       encode();

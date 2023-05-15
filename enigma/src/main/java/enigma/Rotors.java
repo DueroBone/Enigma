@@ -72,7 +72,6 @@ public class Rotors {
         - R3.Position + 26) % 26]
         - R2.Position + 26) % 26]
         - R1.Position + 26) % 26]) % 26;
-    RollRotors();
     return output;
   }
 
@@ -85,6 +84,7 @@ public class Rotors {
       } else {
         output += " ";
       }
+      RollRotors();
     }
     return output;
   }
