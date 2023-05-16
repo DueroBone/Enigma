@@ -12,15 +12,12 @@ public class EnigmaContainer {
     Scanner scanner = new Scanner(System.in);
     System.out.print("Input message: ");
     Input = scanner.nextLine();
-    // Input = "FSHDXBCIJYXQEHJOQYBYZNXGTFOMPV";
-    // Input = "helloworldhelloworld";
     System.out.print("Mode (e=1 | d=2): ");
     int Mode = scanner.nextInt();
-    // int Mode = 2;
 
     // check for custom salt
 
-    // long StartTime = System.currentTimeMillis();
+    long StartTime = System.currentTimeMillis();
 
     if (Mode == 1) {
       encode();
@@ -28,7 +25,7 @@ public class EnigmaContainer {
       crack();
     }
 
-    // System.out.println((System.currentTimeMillis() - StartTime) + "ms");
+    System.out.println((System.currentTimeMillis() - StartTime) + "ms");
     scanner.close();
   }
 
@@ -37,7 +34,6 @@ public class EnigmaContainer {
     Random rand = new Random();
     Rotors rotors = new Rotors();
     rotors.SetRotors(rand.nextInt(26), rand.nextInt(26), rand.nextInt(26));
-    // rotors.SetRotors(10, 0, 0);
     rotors.RollRotors();
     int[] positions = rotors.getPosition();
     System.out.print(positions[0] + " " + positions[1] + " " + positions[2] + " ");

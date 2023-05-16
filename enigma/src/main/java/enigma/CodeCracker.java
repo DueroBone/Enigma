@@ -38,4 +38,8 @@ public class CodeCracker {
     } // FSHDXBCIJYXQEHJOQYBYZNXGTFOMPV DFSVLHBUKDJWVSA
     // System.out.println(positions[0] + " " + positions[1] + " " + positions[2]);
   }
+
+  static void reverseRotors(Rotors rotorsIn) {
+    rotorsIn.
+  }
 }
