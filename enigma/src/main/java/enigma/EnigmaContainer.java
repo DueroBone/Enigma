@@ -12,7 +12,7 @@ public class EnigmaContainer {
     Scanner scanner = new Scanner(System.in);
     System.out.print("Input message: ");
     Input = scanner.nextLine();
-    System.out.print("Mode (e=1 | d=2): ");
+    System.out.print("Mode (encode=1 | decode=2): ");
     int Mode = scanner.nextInt();
 
     // check for custom salt
